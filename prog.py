@@ -31,6 +31,11 @@ carImg = pygame.image.load('car-image.png')
 def car(x,y):
     gameDisplay.blit(carImg, (x,y))
 
+def things_doged(count):
+	font = pygame.font.SysFont(None, 25)
+	text = font.render("Doged : " + str(count), True , black)
+	gameDisplay.blit(text, (0,0))
+
 def text_objects(text, font):
 	# true parameter is for anti aliasing
 	TextSurf = font.render(text, True, black)
@@ -65,7 +70,7 @@ def game_loop():
 	thing_speed = speed
 	thing_width = 100
 	thing_height = 100
-
+	doged = 0
 	# initially we are not crashed
 	gameExit = False
 
@@ -88,7 +93,8 @@ def game_loop():
 		gameDisplay.fill(white)
 		
 		things(thing_startx, thing_starty, thing_width, thing_height, black)
-		thing_starty += thing_speed 
+		thing_starty += thing_speed
+		things_doged(doged) 
 		car(x,y)
 		
 		if x >display_width - car_width or x< 0:
@@ -98,6 +104,7 @@ def game_loop():
 			# so that the user gets a moment when the new block comes in
 			thing_starty = 0 - thing_height
 			thing_startx = random.randrange(0 , display_width)
+			doged = doged + 1
 		if y < thing_starty + thing_height:
 			print('y cross over')
 			if x > thing_startx and x < thing_startx + thing_width or x+car_width >thing_startx and x +car_width <thing_startx + thing_width:
