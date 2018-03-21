@@ -1,5 +1,5 @@
 import pygame
-
+import time
 pygame.init()
 
 display_width = 800
@@ -24,6 +24,28 @@ carImg = pygame.image.load('car-image.png')
 def car(x,y):
     gameDisplay.blit(carImg, (x,y))
 
+def text_objects(text, font):
+	# true parameter is for anti aliasing
+	TextSurf = font.render(text, True, black)
+	return TextSurf , TextSurf.get_rect()
+
+
+def message_display(text):
+	largeText = pygame.font.Font('freesansbold.ttf', 115)
+	TextSurf, TextRect = text_objects(text, largeText)
+	TextRect.center = ((display_width/2), (display_height/2))
+	gameDisplay.blit(TextSurf, TextRect)
+	pygame.display.update()
+
+	#  we want the message to show for only about 2 sec
+	time.sleep(2)
+	# re referencing the game loop if the user does not want to quit the game
+	game_loop()
+
+def crash():
+	message_display("You Crashed")
+
+
 def game_loop():
 	x = display_width * 0.45
 	y = display_height * 0.80
@@ -35,7 +57,9 @@ def game_loop():
 		#this creates a list of events per frame 
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
-				gameExit = True
+				# exiting the game if the user does not to play any more
+				pygame.quit()
+				quit()
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_LEFT:
 					x_change = -5
@@ -48,7 +72,7 @@ def game_loop():
 		gameDisplay.fill(white)
 		car(x,y)
 		if x >display_width - car_width or x< 0:
-			gameExit = True
+			crash()
 
 		pygame.display.update()
 		# this takes frames per second as input
