@@ -2,8 +2,10 @@ import pygame
 import time
 import random 
 
+# initializing the game
 pygame.init()
 
+# size of the display window
 display_width = 800
 display_height = 600
 # to change the speed of the blocks
@@ -31,6 +33,7 @@ carImg = pygame.image.load('media/car-image.png')
 def car(x,y):
     gameDisplay.blit(carImg, (x,y))
 
+#
 def things_doged(count):
 	font = pygame.font.SysFont(None, 25)
 	text = font.render("Doged : " + str(count), True , black)
@@ -41,10 +44,12 @@ def text_objects(text, font):
 	TextSurf = font.render(text, True, black)
 	return TextSurf , TextSurf.get_rect()
 
+# to show blocks on the screen
 def things(thingx, thingy, thingh, thingw, color):
 	pygame.draw.rect(gameDisplay, color, [thingx, thingy,thingh, thingw])
 
 
+# to display a message to screen
 def message_display(text):
 	largeText = pygame.font.Font('freesansbold.ttf', 115)
 	TextSurf, TextRect = text_objects(text, largeText)
@@ -57,10 +62,12 @@ def message_display(text):
 	# re referencing the game loop if the user does not want to quit the game
 	game_loop()
 
+# when you crashed into a block
 def crash():
 	message_display("You Crashed")
 
 
+# play the game
 def game_loop():
 	x = display_width * 0.45
 	y = display_height * 0.80
