@@ -4,6 +4,9 @@ There is a car at the bottom of the screen and you will have to dodge it from th
 
 ![game play](https://github.com/adibyte95/Dodge-It/blob/master/media/gameplay.gif)
 
+This is how automation script will play the game
+![game play](https://github.com/adibyte95/Dodge-It/blob/master/media/automate.gif)
+
 ## Difficulty
 As we play the game the speed with which blocks come increases and aslo the width of the blocks increases
 <br/>
