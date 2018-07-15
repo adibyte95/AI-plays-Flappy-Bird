@@ -11,7 +11,7 @@ This is how automation script will play the game.<br/>
 ![game play](https://github.com/adibyte95/Dodge-It/blob/master/media/automate.gif)
 
 ## Difficulty
-As we play the game the speed with which blocks come increases and aslo the width of the blocks increases
+As we play the game the speed with which blocks come increases and aslo the width of the blocks changes
 <br/>
 <h2>Credits</h2>
 Code is from <a href = "https://www.youtube.com/watch?v=ujOTNg17LjI&list=PLQVvvaa0QuDdLkP8MrOXLe_rKuf6r80KO">this</a> tutorial
